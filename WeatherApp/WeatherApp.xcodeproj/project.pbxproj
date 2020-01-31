@@ -17,6 +17,7 @@
 		F144938923E4C54B00CBE76C /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144938823E4C54B00CBE76C /* Secrets.swift */; };
 		F144938B23E4CEFF00CBE76C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144938A23E4CEFE00CBE76C /* DetailViewController.swift */; };
 		F144938D23E4CF2C00CBE76C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144938C23E4CF2C00CBE76C /* FavoritesViewController.swift */; };
+		F144939123E4D42500CBE76C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144939023E4D42500CBE76C /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F144938823E4C54B00CBE76C /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		F144938A23E4CEFE00CBE76C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F144938C23E4CF2C00CBE76C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		F144939023E4D42500CBE76C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		548CE050234D33B500B5177D /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F144938F23E4D3CC00CBE76C /* View */,
 				F144938723E4C50000CBE76C /* Secrets */,
 				548CE051234D33B500B5177D /* AppDelegate.swift */,
 				548CE053234D33B500B5177D /* SceneDelegate.swift */,
@@ -93,6 +96,14 @@
 				F144938C23E4CF2C00CBE76C /* FavoritesViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F144938F23E4D3CC00CBE76C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F144939023E4D42500CBE76C /* MainView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				548CE066234D33E600B5177D /* ZipCodeHelper.swift in Sources */,
+				F144939123E4D42500CBE76C /* MainView.swift in Sources */,
 				F144938923E4C54B00CBE76C /* Secrets.swift in Sources */,
 				F144938D23E4CF2C00CBE76C /* FavoritesViewController.swift in Sources */,
 				548CE056234D33B500B5177D /* MainWeatherViewController.swift in Sources */,
