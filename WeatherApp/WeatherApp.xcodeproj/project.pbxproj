@@ -15,6 +15,7 @@
 		548CE066234D33E600B5177D /* ZipCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE065234D33E600B5177D /* ZipCodeHelper.swift */; };
 		548CE068234D340700B5177D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 548CE067234D340700B5177D /* Assets.xcassets */; };
 		F144938323E4BE5A00CBE76C /* WeatherTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144938223E4BE5A00CBE76C /* WeatherTabBarControllerViewController.swift */; };
+		F144938923E4C54B00CBE76C /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144938823E4C54B00CBE76C /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		548CE065234D33E600B5177D /* ZipCodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeHelper.swift; sourceTree = "<group>"; };
 		548CE067234D340700B5177D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F144938223E4BE5A00CBE76C /* WeatherTabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTabBarControllerViewController.swift; sourceTree = "<group>"; };
+		F144938823E4C54B00CBE76C /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		548CE050234D33B500B5177D /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F144938723E4C50000CBE76C /* Secrets */,
 				548CE051234D33B500B5177D /* AppDelegate.swift */,
 				548CE053234D33B500B5177D /* SceneDelegate.swift */,
 				548CE065234D33E600B5177D /* ZipCodeHelper.swift */,
@@ -71,6 +74,14 @@
 				F144938223E4BE5A00CBE76C /* WeatherTabBarControllerViewController.swift */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		F144938723E4C50000CBE76C /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				F144938823E4C54B00CBE76C /* Secrets.swift */,
+			);
+			path = Secrets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				548CE066234D33E600B5177D /* ZipCodeHelper.swift in Sources */,
+				F144938923E4C54B00CBE76C /* Secrets.swift in Sources */,
 				548CE056234D33B500B5177D /* ViewController.swift in Sources */,
 				F144938323E4BE5A00CBE76C /* WeatherTabBarControllerViewController.swift in Sources */,
 				548CE052234D33B500B5177D /* AppDelegate.swift in Sources */,
