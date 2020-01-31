@@ -25,6 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let favortiteVC = FavoritesViewController()
         let controlllers =  [mainVC, favortiteVC]
         tab.viewControllers = controlllers.map{UINavigationController(rootViewController: $0)}
+        mainVC.tabBarItem = UITabBarItem(title: "Weather", image: UIImage(systemName: "cloud"), tag: 0)
+        favortiteVC.tabBarItem = UITabBarItem(title: "Favorite", image: UIImage(systemName: "heart.fill"), tag: 0)
         
         window?.rootViewController = tab
         window?.makeKeyAndVisible()
