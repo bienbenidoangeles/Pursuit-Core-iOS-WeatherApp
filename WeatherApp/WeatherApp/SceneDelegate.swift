@@ -20,7 +20,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = WeatherTabBarControllerViewController()
+        let tab = UITabBarController()
+        let mainVC = MainWeatherViewController()
+        let favortiteVC = FavoritesViewController()
+        let controlllers =  [mainVC, favortiteVC]
+        tab.viewControllers = controlllers.map{UINavigationController(rootViewController: $0)}
+        
+        window?.rootViewController = tab
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

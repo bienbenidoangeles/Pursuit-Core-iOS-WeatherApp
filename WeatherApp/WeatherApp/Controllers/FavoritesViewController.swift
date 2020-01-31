@@ -1,5 +1,5 @@
 //
-//  WeatherTabBarControllerViewController.swift
+//  FavoritesViewController.swift
 //  WeatherApp
 //
 //  Created by Bienbenido Angeles on 1/31/20.
@@ -8,18 +8,11 @@
 
 import UIKit
 
-class WeatherTabBarControllerViewController: UITabBarController {
-    
-    private lazy var navController: UINavigationController = {
-        let navVC = UINavigationController(rootViewController: <#T##UIViewController#>)
-    }()
-    
-    
-    
+class FavoritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .blue
         // Do any additional setup after loading the view.
     }
     
