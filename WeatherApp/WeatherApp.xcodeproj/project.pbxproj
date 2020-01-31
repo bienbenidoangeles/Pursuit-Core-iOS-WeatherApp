@@ -62,6 +62,7 @@
 		548CE050234D33B500B5177D /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F144938623E4C31E00CBE76C /* Secrets */,
 				548CE051234D33B500B5177D /* AppDelegate.swift */,
 				548CE053234D33B500B5177D /* SceneDelegate.swift */,
 				548CE065234D33E600B5177D /* ZipCodeHelper.swift */,
@@ -71,9 +72,16 @@
 				548CE067234D340700B5177D /* Assets.xcassets */,
 				548CE05F234D33B600B5177D /* Info.plist */,
 				F144938223E4BE5A00CBE76C /* WeatherTabBarControllerViewController.swift */,
-				F144938423E4C22600CBE76C /* Secrets.swift */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		F144938623E4C31E00CBE76C /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				F144938423E4C22600CBE76C /* Secrets.swift */,
+			);
+			path = Secrets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
