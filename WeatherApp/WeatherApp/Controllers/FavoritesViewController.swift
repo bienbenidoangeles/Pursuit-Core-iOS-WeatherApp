@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import DataPersistence
 
 class FavoritesViewController: UIViewController {
+    
+    var dataPersistance:DataPersistence<Weather>?
 
     override func viewDidLoad() {
         super.viewDidLoad()

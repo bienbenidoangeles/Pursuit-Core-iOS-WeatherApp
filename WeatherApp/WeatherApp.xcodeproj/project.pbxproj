@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,12 @@
 		548CE05E234D33B600B5177D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548CE05C234D33B600B5177D /* LaunchScreen.storyboard */; };
 		548CE066234D33E600B5177D /* ZipCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548CE065234D33E600B5177D /* ZipCodeHelper.swift */; };
 		548CE068234D340700B5177D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 548CE067234D340700B5177D /* Assets.xcassets */; };
+		F13B347823EA0778005200F8 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = F13B347723EA0778005200F8 /* ImageKit */; };
+		F13B347A23EA0855005200F8 /* WeatherTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13B347923EA0855005200F8 /* WeatherTabBarController.swift */; };
+		F13B347C23EA125A005200F8 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13B347B23EA125A005200F8 /* WeatherModel.swift */; };
+		F13B348223EA1D3D005200F8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13B348123EA1D3D005200F8 /* DetailView.swift */; };
+		F13B348423EA1D4E005200F8 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13B348323EA1D4E005200F8 /* FavoritesView.swift */; };
+		F13B348723EA1DEE005200F8 /* WeatherDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13B348623EA1DEE005200F8 /* WeatherDayCell.xib */; };
 		F144938923E4C54B00CBE76C /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144938823E4C54B00CBE76C /* Secrets.swift */; };
 		F144938B23E4CEFF00CBE76C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144938A23E4CEFE00CBE76C /* DetailViewController.swift */; };
 		F144938D23E4CF2C00CBE76C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144938C23E4CF2C00CBE76C /* FavoritesViewController.swift */; };
@@ -30,6 +36,11 @@
 		548CE05F234D33B600B5177D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		548CE065234D33E600B5177D /* ZipCodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeHelper.swift; sourceTree = "<group>"; };
 		548CE067234D340700B5177D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F13B347923EA0855005200F8 /* WeatherTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTabBarController.swift; sourceTree = "<group>"; };
+		F13B347B23EA125A005200F8 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		F13B348123EA1D3D005200F8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		F13B348323EA1D4E005200F8 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		F13B348623EA1DEE005200F8 /* WeatherDayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherDayCell.xib; sourceTree = "<group>"; };
 		F144938823E4C54B00CBE76C /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		F144938A23E4CEFE00CBE76C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F144938C23E4CF2C00CBE76C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F13B347823EA0778005200F8 /* ImageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,18 +78,36 @@
 		548CE050234D33B500B5177D /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F13B348523EA1DAB005200F8 /* Xibs */,
 				F144938F23E4D3CC00CBE76C /* View */,
 				F144938723E4C50000CBE76C /* Secrets */,
 				548CE051234D33B500B5177D /* AppDelegate.swift */,
 				548CE053234D33B500B5177D /* SceneDelegate.swift */,
-				548CE065234D33E600B5177D /* ZipCodeHelper.swift */,
+				F13B347D23EA1CD0005200F8 /* API Clients */,
 				F144938E23E4D21600CBE76C /* Controllers */,
 				548CE057234D33B500B5177D /* Main.storyboard */,
 				548CE05C234D33B600B5177D /* LaunchScreen.storyboard */,
 				548CE067234D340700B5177D /* Assets.xcassets */,
 				548CE05F234D33B600B5177D /* Info.plist */,
+				F13B347B23EA125A005200F8 /* WeatherModel.swift */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		F13B347D23EA1CD0005200F8 /* API Clients */ = {
+			isa = PBXGroup;
+			children = (
+				548CE065234D33E600B5177D /* ZipCodeHelper.swift */,
+			);
+			path = "API Clients";
+			sourceTree = "<group>";
+		};
+		F13B348523EA1DAB005200F8 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				F13B348623EA1DEE005200F8 /* WeatherDayCell.xib */,
+			);
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 		F144938723E4C50000CBE76C /* Secrets */ = {
@@ -94,6 +124,7 @@
 				548CE055234D33B500B5177D /* MainWeatherViewController.swift */,
 				F144938A23E4CEFE00CBE76C /* DetailViewController.swift */,
 				F144938C23E4CF2C00CBE76C /* FavoritesViewController.swift */,
+				F13B347923EA0855005200F8 /* WeatherTabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -102,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				F144939023E4D42500CBE76C /* MainView.swift */,
+				F13B348123EA1D3D005200F8 /* DetailView.swift */,
+				F13B348323EA1D4E005200F8 /* FavoritesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -122,6 +155,9 @@
 			dependencies = (
 			);
 			name = WeatherApp;
+			packageProductDependencies = (
+				F13B347723EA0778005200F8 /* ImageKit */,
+			);
 			productName = WeatherApp;
 			productReference = 548CE04E234D33B500B5177D /* WeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -150,6 +186,9 @@
 				Base,
 			);
 			mainGroup = 548CE045234D33B500B5177D;
+			packageReferences = (
+				F13B347623EA0778005200F8 /* XCRemoteSwiftPackageReference "ImageKit" */,
+			);
 			productRefGroup = 548CE04F234D33B500B5177D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -165,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				548CE05E234D33B600B5177D /* LaunchScreen.storyboard in Resources */,
+				F13B348723EA1DEE005200F8 /* WeatherDayCell.xib in Resources */,
 				548CE068234D340700B5177D /* Assets.xcassets in Resources */,
 				548CE059234D33B500B5177D /* Main.storyboard in Resources */,
 			);
@@ -180,8 +220,12 @@
 				548CE066234D33E600B5177D /* ZipCodeHelper.swift in Sources */,
 				F144939123E4D42500CBE76C /* MainView.swift in Sources */,
 				F144938923E4C54B00CBE76C /* Secrets.swift in Sources */,
+				F13B347A23EA0855005200F8 /* WeatherTabBarController.swift in Sources */,
+				F13B347C23EA125A005200F8 /* WeatherModel.swift in Sources */,
+				F13B348223EA1D3D005200F8 /* DetailView.swift in Sources */,
 				F144938D23E4CF2C00CBE76C /* FavoritesViewController.swift in Sources */,
 				548CE056234D33B500B5177D /* MainWeatherViewController.swift in Sources */,
+				F13B348423EA1D4E005200F8 /* FavoritesView.swift in Sources */,
 				548CE052234D33B500B5177D /* AppDelegate.swift in Sources */,
 				548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */,
 				F144938B23E4CEFF00CBE76C /* DetailViewController.swift in Sources */,
@@ -380,6 +424,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F13B347623EA0778005200F8 /* XCRemoteSwiftPackageReference "ImageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/ImageKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F13B347723EA0778005200F8 /* ImageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F13B347623EA0778005200F8 /* XCRemoteSwiftPackageReference "ImageKit" */;
+			productName = ImageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 548CE046234D33B500B5177D /* Project object */;
 }

@@ -7,8 +7,17 @@
 //
 
 import UIKit
+import DataPersistence
 
 class MainWeatherViewController: UIViewController {
+    
+    var dataPersistance:DataPersistence<Weather>?
+    
+    let mainView = MainView()
+    
+    override func loadView() {
+        view = mainView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

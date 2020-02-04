@@ -1,5 +1,6 @@
 import UIKit
 import CoreLocation
+import NetworkHelper
 
 enum LocationFetchingError: Error {
     case error(Error)
@@ -51,5 +52,32 @@ class ZipCodeHelper {
           }
         }
       }
+    }
+}
+
+class WeatherHelper {
+    static func getWeather(from coordinates: (Double, Double), completion: @escaping(Result<Weather,AppError>)->()){
+        let endPointURL = "https://api.darksky.net/forecast/\(Secrets.secret)/\(coordinates.0),\(coordinates.1)"
+        
+        guard let url = URL(string: endPointURL) else {
+            completion(.failure(.badURL(endPointURL)))
+            return
+        }
+        
+        let request = URLRequest(url: url)
+        
+        NetworkHelper.shared.performDataTask(with: request) { (result) in
+            switch result{
+            case .failure(let appError):
+                completion(.failure(.networkClientError(appError)))
+            case .success(let data):
+                do{
+                    let weather = try JSONDecoder().decode(Weather.self, from: data)
+                    completion(.success(weather))
+                } catch{
+                    completion(.failure(.decodingError(error)))
+                }
+            }
+        }
     }
 }
