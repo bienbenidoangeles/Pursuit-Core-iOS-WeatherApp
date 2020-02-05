@@ -13,7 +13,7 @@ extension Int {
     let date = Date(timeIntervalSince1970: TimeInterval(self))
     let dateFormatter = DateFormatter()
     dateFormatter.timeStyle = DateFormatter.Style.medium
-    dateFormatter.dateFormat = "MMMM dd, yyyy"
+    dateFormatter.dateFormat = "yyyy-MM-dd"
     dateFormatter.timeZone = .current
     let localDate = dateFormatter.string(from: date)
     return localDate
