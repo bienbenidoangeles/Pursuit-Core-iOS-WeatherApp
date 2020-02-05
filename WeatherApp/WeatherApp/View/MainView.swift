@@ -25,7 +25,7 @@ class MainView: UIView {
         //layout.itemSize = CGSize(width: 150, height: 300)
         
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .systemGray
+        collectionView.backgroundColor = .systemBackground
         return collectionView
     }()
     

@@ -12,7 +12,7 @@ import ImageKit
 
 class DetailViewController: UIViewController {
     
-    var dataPersistance:DataPersistence<Photo>?
+    var dataPersistance:DataPersistence<Photo>!
     
     private var detailView = DetailView()
     var passedWeatherLocation: String?
