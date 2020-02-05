@@ -17,19 +17,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwg-7X-ieE">
-                        <rect key="frame" x="20" y="8" width="99" height="20.5"/>
+                        <rect key="frame" x="20" y="8" width="99" height="28.5"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6vr-Lr-zVo">
-                        <rect key="frame" x="40" y="36.5" width="59" height="59"/>
+                        <rect key="frame" x="40" y="44.5" width="59" height="59"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="6vr-Lr-zVo" secondAttribute="height" multiplier="1:1" id="7aN-ch-S3I"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperatures [High Low] Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCQ-2L-inH">
-                        <rect key="frame" x="20" y="103.5" width="99" height="58"/>
+                        <rect key="frame" x="20" y="111.5" width="99" height="166.5"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -40,6 +40,7 @@
                     <constraint firstItem="qwg-7X-ieE" firstAttribute="centerX" secondItem="rfR-vK-LqH" secondAttribute="centerX" id="0vu-7t-MNC"/>
                     <constraint firstItem="6vr-Lr-zVo" firstAttribute="leading" secondItem="qwg-7X-ieE" secondAttribute="leading" constant="20" id="1Pi-HT-3bb"/>
                     <constraint firstAttribute="trailing" secondItem="qwg-7X-ieE" secondAttribute="trailing" constant="20" id="7yR-Qr-pd8"/>
+                    <constraint firstItem="qwg-7X-ieE" firstAttribute="height" secondItem="rfR-vK-LqH" secondAttribute="height" multiplier="0.1" id="Fok-Xk-zJE"/>
                     <constraint firstItem="6vr-Lr-zVo" firstAttribute="top" secondItem="qwg-7X-ieE" secondAttribute="bottom" constant="8" id="FwB-a4-zI9"/>
                     <constraint firstItem="qwg-7X-ieE" firstAttribute="leading" secondItem="rfR-vK-LqH" secondAttribute="leading" constant="20" id="MIn-LN-Quo"/>
                     <constraint firstItem="ZCQ-2L-inH" firstAttribute="top" secondItem="6vr-Lr-zVo" secondAttribute="bottom" constant="8" id="Q57-PX-6rq"/>
@@ -47,6 +48,7 @@
                     <constraint firstItem="ZCQ-2L-inH" firstAttribute="centerX" secondItem="6vr-Lr-zVo" secondAttribute="centerX" id="VWt-W7-MN5"/>
                     <constraint firstItem="qwg-7X-ieE" firstAttribute="top" secondItem="rfR-vK-LqH" secondAttribute="top" constant="8" id="Vnd-yN-OYz"/>
                     <constraint firstItem="ZCQ-2L-inH" firstAttribute="width" secondItem="qwg-7X-ieE" secondAttribute="width" id="sQl-RG-3x3"/>
+                    <constraint firstAttribute="bottom" secondItem="ZCQ-2L-inH" secondAttribute="bottom" constant="8" id="u1j-hO-kr6"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="139" height="286"/>

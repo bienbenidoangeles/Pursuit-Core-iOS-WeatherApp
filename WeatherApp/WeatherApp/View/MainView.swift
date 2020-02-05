@@ -22,7 +22,7 @@ class MainView: UIView {
     var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 150, height: 300)
+        //layout.itemSize = CGSize(width: 150, height: 300)
         
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemGray
