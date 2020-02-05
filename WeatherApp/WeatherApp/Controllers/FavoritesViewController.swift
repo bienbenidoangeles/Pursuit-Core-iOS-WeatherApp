@@ -73,6 +73,7 @@ extension FavoritesViewController: UITableViewDataSource{
 
 extension FavoritesViewController: DataPersistenceDelegate{
     func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        loadData()
         favView.tableView.reloadData()
     }
 

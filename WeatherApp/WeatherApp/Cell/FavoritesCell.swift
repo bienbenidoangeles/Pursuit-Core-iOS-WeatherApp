@@ -51,6 +51,7 @@ class FavoritesCell: UITableViewCell {
             cityImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             cityImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             cityImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            cityImageView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
             cityImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
