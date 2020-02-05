@@ -34,7 +34,7 @@ class FavoritesCell: UITableViewCell {
                 }
             case .success(let image):
                 DispatchQueue.main.async {
-                    self.cityImageView.image = image
+                    self.cityImageView.image = image.resizeImage(to: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.35)
                 }
             }
         }

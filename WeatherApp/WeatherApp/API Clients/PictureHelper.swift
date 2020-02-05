@@ -11,7 +11,7 @@ import NetworkHelper
 
 
 struct PhotoAPIClient {
-    static func getPhotos(with query: String, completion: @escaping (Result<Photo, AppError>)->()){
+    static func getPhotos(with query: String, completion: @escaping (Result<Photo?, AppError>)->()){
         let queryMod = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
         let endPointURLString = "https://pixabay.com/api/?key=\(Secrets.apiKey)&q=\(queryMod)"
         guard let url = URL(string: endPointURLString) else {
@@ -28,7 +28,7 @@ struct PhotoAPIClient {
                 do{
                     let photoData = try JSONDecoder().decode(PhotoData.self, from: data)
                     let photo = photoData.hits.first
-                    completion(.success(photo!))
+                    completion(.success(photo))
                 } catch{
                     completion(.failure(.decodingError(error)))
                 }

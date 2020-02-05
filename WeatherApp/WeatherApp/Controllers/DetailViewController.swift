@@ -52,6 +52,12 @@ class DetailViewController: UIViewController {
         }
         let favoritedPic = Photo(largeImageURL: photoSelected.largeImageURL, webformatHeight: photoSelected.webformatHeight, webformatWidth: photoSelected.webformatHeight, previewURL: photoSelected.previewURL, favorited: true)
         
+        do{
+            try dataPersistance.createItem(favoritedPic)
+        } catch{
+            showAlert(title: "Saving Error", message: "\(error)")
+        }
+
         delegate?.didSaveItem(dataPersistance, item: favoritedPic)
         showAlert(title: "Success", message: "PhotoObj: \(favoritedPic.description)")
     }
@@ -65,12 +71,14 @@ class DetailViewController: UIViewController {
             fatalError("DailyWeather Obj was not passed")
         }
         
-        guard let validPhoto = passedPhoto else {
-            fatalError("Photo obj was not passed")
-        }
+
         
         detailView.cityDayLabel.text = "Weather forecast for \(weatherLocation) on \(weatherObjForDay.sunsetTime.convertDate())"
-        detailView.cityDayDetailLabel.text = "\(weatherObjForDay.summary)\nHigh: \(Int(weatherObjForDay.temperatureHigh)) deg F\nLow: \(Int(weatherObjForDay.temperatureLow)) deg F\nSunrise:\(weatherObjForDay.sunriseTime.convertTime())\nSunset:\(weatherObjForDay.sunsetTime.convertTime())\nWindspeed: \(Int(weatherObjForDay.windSpeed)) MPH\nPrecipitation Probabilty: \(weatherObjForDay.precipProbability*100) %"
+        detailView.cityDayDetailLabel.text = "\(weatherObjForDay.summary)\nHigh: \(Int(weatherObjForDay.temperatureHigh)) deg F\nLow: \(Int(weatherObjForDay.temperatureLow)) deg F\nSunrise: \(weatherObjForDay.sunriseTime.convertTime())\nSunset: \(weatherObjForDay.sunsetTime.convertTime())\nWindspeed: \(Int(weatherObjForDay.windSpeed)) MPH\nPrecipitation Probabilty: \(weatherObjForDay.precipProbability*100) %"
+        guard let validPhoto = passedPhoto else {
+            self.detailView.cityImageView.image = UIImage(systemName: "photo")
+            return
+        }
         detailView.cityImageView.getImage(with: validPhoto.largeImageURL) { (result) in
             switch result{
             case .failure:
@@ -78,7 +86,9 @@ class DetailViewController: UIViewController {
                     self.detailView.cityImageView.image = UIImage(systemName: "photo")
                 }
             case .success(let image):
-                self.detailView.cityImageView.image = image
+                DispatchQueue.main.async {
+                    self.detailView.cityImageView.image = image.resizeImage(to: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.35)
+                }
             }
         }
     }

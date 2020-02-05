@@ -107,7 +107,7 @@ extension MainWeatherViewController: UICollectionViewDelegateFlowLayout{
         let weatherForDay = weatherWeeklyForecast?.daily.data[indexPath.row]
         detailVC.passedWeatherDataObj = weatherForDay
         detailVC.passedWeatherLocation = locationName!
-        detailVC.passedPhoto = cityImage!
+        detailVC.passedPhoto = cityImage
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

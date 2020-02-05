@@ -14,6 +14,7 @@ class DetailView: UIView {
         let label = UILabel()
         label.font = UIFont(name: "Headline", size: label.font.pointSize)
         label.textAlignment = .center
+        label.numberOfLines = 0
         label.text = "Weather Forecast"
         return label
     }()
@@ -26,6 +27,7 @@ class DetailView: UIView {
     lazy var cityDayDetailLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Subhead", size: label.font.pointSize)
+        label.numberOfLines = 0
         label.textAlignment = .center
         label.text = "Detail Weather"
         return label
@@ -55,7 +57,7 @@ class DetailView: UIView {
             cityDayLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             cityDayLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             cityDayLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            cityDayLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
+            cityDayLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.1)
         ])
     }
     
@@ -75,7 +77,7 @@ class DetailView: UIView {
         cityDayDetailLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             cityDayDetailLabel.topAnchor.constraint(equalTo: cityImageView.bottomAnchor, constant: 8),
-            cityDayDetailLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6),
+            cityDayDetailLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.75),
             cityDayDetailLabel.centerXAnchor.constraint(equalTo: cityDayLabel.centerXAnchor),
             cityDayDetailLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 8)
         ])
