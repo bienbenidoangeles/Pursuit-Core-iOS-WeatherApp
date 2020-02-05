@@ -29,6 +29,8 @@ class MainWeatherViewController: UIViewController {
         }
     }
     
+    var cityImage:Photo?
+    
     override func loadView() {
         view = mainView
     }
@@ -53,22 +55,41 @@ class MainWeatherViewController: UIViewController {
         mainView.weatherForecastLocationLabel.text = "Weather for \(locationName ?? "N/A")"
     }
     
+    
     private func loadData(for zipcode: String){
         ZipCodeHelper.getLatLong(fromZipCode: zipcode) { (result) in
             switch result{
             case .failure(let error):
-                print(error)
+                self.showAlert(title: "Error", message: "\(error)")
             case .success(let coordinate):
                 let coordinatePos:(Double, Double) = (coordinate.lat, coordinate.long)
                 self.locationName = coordinate.placeName
-                WeatherHelper.getWeather(from: coordinatePos) { (result) in
-                    switch result{
-                    case .failure(let appError):
-                        self.showAlert(title: "Network Error", message: "\(appError)")
-                    case .success(let weather):
-                        self.weatherWeeklyForecast = weather
-                    }
-                }
+                self.getWeather(with: coordinatePos)
+                self.getPhoto(with: coordinate.placeName)
+            }
+        }
+        
+        
+    }
+    
+    private func getWeather(with coor: (Double, Double)){
+        WeatherHelper.getWeather(from: coor) { (result) in
+            switch result{
+            case .failure(let appError):
+                self.showAlert(title: "Network Error", message: "\(appError)")
+            case .success(let weather):
+                self.weatherWeeklyForecast = weather
+            }
+        }
+    }
+    
+    private func getPhoto(with location: String){
+        PhotoAPIClient.getPhotos(with: location) { (result) in
+            switch result{
+            case .failure(let appError):
+                self.showAlert(title: "Network Error", message: "\(appError)")
+            case .success(let photo):
+                self.cityImage = photo
             }
         }
     }
@@ -86,6 +107,7 @@ extension MainWeatherViewController: UICollectionViewDelegateFlowLayout{
         let weatherForDay = weatherWeeklyForecast?.daily.data[indexPath.row]
         detailVC.passedWeatherDataObj = weatherForDay
         detailVC.passedWeatherLocation = locationName!
+        detailVC.passedPhoto = cityImage!
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

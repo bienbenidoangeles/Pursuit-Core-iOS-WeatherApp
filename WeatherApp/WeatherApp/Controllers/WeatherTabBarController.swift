@@ -10,7 +10,7 @@ import UIKit
 import DataPersistence
 
 class WeatherTabBarController: UITabBarController {
-    let dataPersistance = DataPersistence<Weather>(filename: "SavedWeatherData.plist")
+    let dataPersistance = DataPersistence<Photo>(filename: "SavedWeatherData.plist")
     
     lazy var mainViewController:MainWeatherViewController = {
         let mainVC = MainWeatherViewController()

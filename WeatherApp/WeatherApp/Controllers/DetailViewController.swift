@@ -12,11 +12,14 @@ import ImageKit
 
 class DetailViewController: UIViewController {
     
-    var dataPersistance:DataPersistence<Weather>?
+    var dataPersistance:DataPersistence<Photo>?
     
     private var detailView = DetailView()
     var passedWeatherLocation: String?
     var passedWeatherDataObj: DataForDay?
+    var passedPhoto:Photo?
+    
+    var favoritedPic: Photo?
     
     
     override func loadView() {
@@ -38,6 +41,12 @@ class DetailViewController: UIViewController {
     @objc
     private func saveButtonTapped(){
         //dataPersistance?.delegate = self
+        
+        guard let photoSelected = passedPhoto else{
+            return
+        }
+        favoritedPic = Photo(largeImageURL: photoSelected.largeImageURL, webformatHeight: photoSelected.webformatHeight, webformatWidth: photoSelected.webformatHeight, previewURL: photoSelected.previewURL, favorited: true)
+        
     }
     
     private func updateUI(){
@@ -48,42 +57,42 @@ class DetailViewController: UIViewController {
         guard let weatherObjForDay = passedWeatherDataObj else {
             fatalError("DailyWeather Obj was not passed")
         }
-        PhotoAPIClient.getPhotos(with: weatherLocation) { (result) in
+        
+        guard let validPhoto = passedPhoto else {
+            fatalError("Photo obj was not passed")
+        }
+        
+        detailView.cityDayLabel.text = "Weather forecast for \(weatherLocation) on \(weatherObjForDay.sunsetTime.convertDate())"
+        detailView.cityDayDetailLabel.text = "\(weatherObjForDay.summary)\nHigh: \(Int(weatherObjForDay.temperatureHigh)) deg F\nLow: \(Int(weatherObjForDay.temperatureLow)) deg F\nSunrise:\(weatherObjForDay.sunriseTime.convertTime())\nSunset:\(weatherObjForDay.sunsetTime.convertTime())\nWindspeed: \(Int(weatherObjForDay.windSpeed)) MPH\nPrecipitation Probabilty: \(weatherObjForDay.precipProbability*100) %"
+        detailView.cityImageView.getImage(with: validPhoto.largeImageURL) { (result) in
             switch result{
             case .failure:
                 DispatchQueue.main.async {
-                    self.detailView.cityImageView.image = UIImage(named: weatherObjForDay.icon)
+                    self.detailView.cityImageView.image = UIImage(systemName: "photo")
                 }
-            case .success(let photo):
-                DispatchQueue.main.async {
-                    self.detailView.cityImageView.getImage(with: photo.largeImageURL) { (result) in
-                        switch result{
-                        case .failure:
-                            self.detailView.cityImageView.image = UIImage(named: weatherObjForDay.icon)
-                        case .success(let image):
-                            DispatchQueue.main.async {
-                                self.detailView.cityImageView.image = image
-                            }
-                        }
-                    }
-                }
-                
+            case .success(let image):
+                self.detailView.cityImageView.image = image
             }
         }
-        detailView.cityDayLabel.text = "Weather forecast for \(weatherLocation) on \(weatherObjForDay.sunsetTime.convertDate())"
-        detailView.cityDayDetailLabel.text = "\(weatherObjForDay.summary)\nHigh: \(Int(weatherObjForDay.temperatureHigh)) deg F\nLow: \(Int(weatherObjForDay.temperatureLow)) deg F\nSunrise:\(weatherObjForDay.sunriseTime.convertTime())\nSunset:\(weatherObjForDay.sunsetTime.convertTime())\nWindspeed: \(Int(weatherObjForDay.windSpeed)) MPH\nPrecipitation Probabilty: \(weatherObjForDay.precipProbability*100) %"
     }
 }
 
-extension DetailViewController: DataPersistenceDelegate{
-    func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-        return
-    }
-    
-    func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-        return
-    }
-}
+//extension DetailViewController: DataPersistenceDelegate{
+//    func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+//
+//        //favoritedPic is of type Photo?
+//        guard let validPic = favoritedPic else { fatalError("Favorited Pic was not created") }
+//        do{
+//             try persistenceHelper.createItem(validPic)
+//        } catch {
+//            showAlert(title: "Data Persist Erro", message: "\(error)")
+//        }
+//    }
+//
+//    func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+//        return
+//    }
+//}
 
 extension UIImage {
     func resizeImage(to width: CGFloat, height: CGFloat) -> UIImage {
