@@ -13,6 +13,8 @@ class MainWeatherViewController: UIViewController {
     
     private let mainView = MainView()
     
+    var dataPersistance:DataPersistence<Photo>!
+    
     var weatherWeeklyForecast:Weather?{
         didSet{
             DispatchQueue.main.async {
@@ -108,6 +110,7 @@ extension MainWeatherViewController: UICollectionViewDelegateFlowLayout{
         detailVC.passedWeatherDataObj = weatherForDay
         detailVC.passedWeatherLocation = locationName!
         detailVC.passedPhoto = cityImage
+        detailVC.dataPersistance = dataPersistance
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

@@ -34,7 +34,7 @@ class WeatherTabBarController: UITabBarController {
         let controllers = [mainViewController, favViewController]
         viewControllers = controllers.map{UINavigationController(rootViewController: $0)}
         favViewController.dataPersistance = dataPersistance
-        detailViewController.dataPersistance = dataPersistance
+        mainViewController.dataPersistance = dataPersistance
     }
     
 }
