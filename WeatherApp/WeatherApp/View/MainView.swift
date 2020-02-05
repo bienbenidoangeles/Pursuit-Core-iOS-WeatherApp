@@ -14,6 +14,7 @@ class MainView: UIView {
     var weatherForecastLocationLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Headline", size: label.font.pointSize)
+        label.textAlignment = .center
         label.text = "Weather Forecast"
         return label
     }()
@@ -57,7 +58,7 @@ class MainView: UIView {
             weatherForecastLocationLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
             weatherForecastLocationLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             weatherForecastLocationLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            weatherForecastLocationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 20)
+            weatherForecastLocationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
     }
     

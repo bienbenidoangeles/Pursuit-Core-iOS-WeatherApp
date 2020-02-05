@@ -11,7 +11,7 @@ import Foundation
 struct Weather: Codable & Equatable {
     let latitude: Double
     let longitude: Double
-    let timeZone: String
+    let timezone: String
     let currently: CurrentWeather
     let daily: DailyWeather
     
@@ -40,7 +40,7 @@ struct DataForDay: Codable & Equatable {
     let sunriseTime: Int
     let sunsetTime: Int
     let precipProbability: Double
-    let precipType: String
+    let precipType: String?
     let windSpeed: Double
     let temperatureHigh: Double
     let temperatureLow: Double
