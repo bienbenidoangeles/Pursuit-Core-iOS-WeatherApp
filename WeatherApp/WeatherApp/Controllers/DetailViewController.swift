@@ -79,15 +79,15 @@ class DetailViewController: UIViewController {
             self.detailView.cityImageView.image = UIImage(systemName: "photo")
             return
         }
-        detailView.cityImageView.getImage(with: validPhoto.largeImageURL) { (result) in
+        detailView.cityImageView.getImage(with: validPhoto.largeImageURL) {[weak self] (result) in
             switch result{
             case .failure:
                 DispatchQueue.main.async {
-                    self.detailView.cityImageView.image = UIImage(systemName: "photo")
+                    self?.detailView.cityImageView.image = UIImage(systemName: "photo")
                 }
             case .success(let image):
                 DispatchQueue.main.async {
-                    self.detailView.cityImageView.image = image.resizeImage(to: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.35)
+                    self?.detailView.cityImageView.image = image.resizeImage(to: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.35)
                 }
             }
         }

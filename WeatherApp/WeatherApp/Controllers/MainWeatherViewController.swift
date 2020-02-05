@@ -59,15 +59,15 @@ class MainWeatherViewController: UIViewController {
     
     
     private func loadData(for zipcode: String){
-        ZipCodeHelper.getLatLong(fromZipCode: zipcode) { (result) in
+        ZipCodeHelper.getLatLong(fromZipCode: zipcode) {[weak self] (result) in
             switch result{
             case .failure(let error):
-                self.showAlert(title: "Error", message: "\(error)")
+                self?.showAlert(title: "Error", message: "\(error)")
             case .success(let coordinate):
                 let coordinatePos:(Double, Double) = (coordinate.lat, coordinate.long)
-                self.locationName = coordinate.placeName
-                self.getWeather(with: coordinatePos)
-                self.getPhoto(with: coordinate.placeName)
+                self?.locationName = coordinate.placeName
+                self?.getWeather(with: coordinatePos)
+                self?.getPhoto(with: coordinate.placeName)
             }
         }
         
@@ -75,23 +75,23 @@ class MainWeatherViewController: UIViewController {
     }
     
     private func getWeather(with coor: (Double, Double)){
-        WeatherHelper.getWeather(from: coor) { (result) in
+        WeatherHelper.getWeather(from: coor) {[weak self] (result) in
             switch result{
             case .failure(let appError):
-                self.showAlert(title: "Network Error", message: "\(appError)")
+                self?.showAlert(title: "Network Error", message: "\(appError)")
             case .success(let weather):
-                self.weatherWeeklyForecast = weather
+                self?.weatherWeeklyForecast = weather
             }
         }
     }
     
     private func getPhoto(with location: String){
-        PhotoAPIClient.getPhotos(with: location) { (result) in
+        PhotoAPIClient.getPhotos(with: location) {[weak self] (result) in
             switch result{
             case .failure(let appError):
-                self.showAlert(title: "Network Error", message: "\(appError)")
+                self?.showAlert(title: "Network Error", message: "\(appError)")
             case .success(let photo):
-                self.cityImage = photo
+                self?.cityImage = photo
             }
         }
     }

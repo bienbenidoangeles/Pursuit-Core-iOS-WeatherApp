@@ -26,15 +26,15 @@ class FavoritesCell: UITableViewCell {
     }
     
     func configureCell(for photo: Photo){
-        cityImageView.getImage(with: photo.largeImageURL) { (result) in
+        cityImageView.getImage(with: photo.largeImageURL) {[weak self] (result) in
             switch result{
             case .failure:
                 DispatchQueue.main.async {
-                    self.cityImageView.image = UIImage(systemName: "photo")
+                    self?.cityImageView.image = UIImage(systemName: "photo")
                 }
             case .success(let image):
                 DispatchQueue.main.async {
-                    self.cityImageView.image = image.resizeImage(to: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.35)
+                    self?.cityImageView.image = image.resizeImage(to: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.35)
                 }
             }
         }
