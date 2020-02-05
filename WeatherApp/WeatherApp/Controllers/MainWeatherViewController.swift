@@ -11,9 +11,7 @@ import DataPersistence
 
 class MainWeatherViewController: UIViewController {
     
-    var dataPersistance:DataPersistence<Weather>?
-    
-    let mainView = MainView()
+    private let mainView = MainView()
     
     var weatherWeeklyForecast:Weather?{
         didSet{
@@ -45,17 +43,17 @@ class MainWeatherViewController: UIViewController {
         loadData(for: "10463")
     }
     
-    func delegatesAndDataSources(){
+    private func delegatesAndDataSources(){
         mainView.textField.delegate = self
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
     }
     
-    func updateUI(){
+    private func updateUI(){
         mainView.weatherForecastLocationLabel.text = "Weather for \(locationName ?? "N/A")"
     }
     
-    func loadData(for zipcode: String){
+    private func loadData(for zipcode: String){
         ZipCodeHelper.getLatLong(fromZipCode: zipcode) { (result) in
             switch result{
             case .failure(let error):
@@ -66,10 +64,9 @@ class MainWeatherViewController: UIViewController {
                 WeatherHelper.getWeather(from: coordinatePos) { (result) in
                     switch result{
                     case .failure(let appError):
-                        print(appError)
+                        self.showAlert(title: "Network Error", message: "\(appError)")
                     case .success(let weather):
                         self.weatherWeeklyForecast = weather
-                        dump(weather)
                     }
                 }
             }
@@ -84,9 +81,13 @@ extension MainWeatherViewController: UICollectionViewDelegateFlowLayout{
         return CGSize(width: itemWidth, height: itemWidth*2)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = DetailViewController()
+        let weatherForDay = weatherWeeklyForecast?.daily.data[indexPath.row]
+        detailVC.passedWeatherDataObj = weatherForDay
+        detailVC.passedWeatherLocation = locationName!
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension MainWeatherViewController: UICollectionViewDataSource{

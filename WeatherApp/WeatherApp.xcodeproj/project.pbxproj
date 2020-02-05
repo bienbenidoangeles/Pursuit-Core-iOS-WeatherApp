@@ -22,6 +22,9 @@
 		F13B348723EA1DEE005200F8 /* WeatherDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F13B348623EA1DEE005200F8 /* WeatherDayCell.xib */; };
 		F13B348A23EA325F005200F8 /* WeatherCollectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13B348923EA325F005200F8 /* WeatherCollectViewCell.swift */; };
 		F13B348E23EACC06005200F8 /* Int+DateConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13B348D23EACC06005200F8 /* Int+DateConversions.swift */; };
+		F13B349023EADBC8005200F8 /* PictureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13B348F23EADBC8005200F8 /* PictureHelper.swift */; };
+		F13B349223EADEDE005200F8 /* ShowAlert+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13B349123EADEDE005200F8 /* ShowAlert+ViewController.swift */; };
+		F13B349423EADFBD005200F8 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13B349323EADFBD005200F8 /* PhotoModel.swift */; };
 		F144938923E4C54B00CBE76C /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144938823E4C54B00CBE76C /* Secrets.swift */; };
 		F144938B23E4CEFF00CBE76C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144938A23E4CEFE00CBE76C /* DetailViewController.swift */; };
 		F144938D23E4CF2C00CBE76C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F144938C23E4CF2C00CBE76C /* FavoritesViewController.swift */; };
@@ -45,6 +48,9 @@
 		F13B348623EA1DEE005200F8 /* WeatherDayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherDayCell.xib; sourceTree = "<group>"; };
 		F13B348923EA325F005200F8 /* WeatherCollectViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectViewCell.swift; sourceTree = "<group>"; };
 		F13B348D23EACC06005200F8 /* Int+DateConversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+DateConversions.swift"; sourceTree = "<group>"; };
+		F13B348F23EADBC8005200F8 /* PictureHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureHelper.swift; sourceTree = "<group>"; };
+		F13B349123EADEDE005200F8 /* ShowAlert+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShowAlert+ViewController.swift"; sourceTree = "<group>"; };
+		F13B349323EADFBD005200F8 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		F144938823E4C54B00CBE76C /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		F144938A23E4CEFE00CBE76C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F144938C23E4CF2C00CBE76C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				548CE065234D33E600B5177D /* ZipCodeHelper.swift */,
+				F13B348F23EADBC8005200F8 /* PictureHelper.swift */,
 			);
 			path = "API Clients";
 			sourceTree = "<group>";
@@ -128,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				F13B347B23EA125A005200F8 /* WeatherModel.swift */,
+				F13B349323EADFBD005200F8 /* PhotoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				F13B348D23EACC06005200F8 /* Int+DateConversions.swift */,
+				F13B349123EADEDE005200F8 /* ShowAlert+ViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -247,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F13B349023EADBC8005200F8 /* PictureHelper.swift in Sources */,
 				548CE066234D33E600B5177D /* ZipCodeHelper.swift in Sources */,
 				F144939123E4D42500CBE76C /* MainView.swift in Sources */,
 				F144938923E4C54B00CBE76C /* Secrets.swift in Sources */,
@@ -258,6 +268,8 @@
 				F13B348423EA1D4E005200F8 /* FavoritesView.swift in Sources */,
 				548CE052234D33B500B5177D /* AppDelegate.swift in Sources */,
 				548CE054234D33B500B5177D /* SceneDelegate.swift in Sources */,
+				F13B349223EADEDE005200F8 /* ShowAlert+ViewController.swift in Sources */,
+				F13B349423EADFBD005200F8 /* PhotoModel.swift in Sources */,
 				F13B348E23EACC06005200F8 /* Int+DateConversions.swift in Sources */,
 				F144938B23E4CEFF00CBE76C /* DetailViewController.swift in Sources */,
 				F13B348A23EA325F005200F8 /* WeatherCollectViewCell.swift in Sources */,
