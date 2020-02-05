@@ -19,8 +19,9 @@ class DetailViewController: UIViewController {
     var passedWeatherDataObj: DataForDay?
     var passedPhoto:Photo?
     
-    var favoritedPic: Photo?
+    //var favoritedPic: Photo?
     
+    private var delegate: DataPersistenceDelegate?
     
     override func loadView() {
         view = detailView
@@ -45,8 +46,14 @@ class DetailViewController: UIViewController {
         guard let photoSelected = passedPhoto else{
             return
         }
-        favoritedPic = Photo(largeImageURL: photoSelected.largeImageURL, webformatHeight: photoSelected.webformatHeight, webformatWidth: photoSelected.webformatHeight, previewURL: photoSelected.previewURL, favorited: true)
         
+        guard let dataPersistance = dataPersistance else {
+            fatalError("DataPersistance was not injected to DVC")
+        }
+        let favoritedPic = Photo(largeImageURL: photoSelected.largeImageURL, webformatHeight: photoSelected.webformatHeight, webformatWidth: photoSelected.webformatHeight, previewURL: photoSelected.previewURL, favorited: true)
+        
+        delegate?.didSaveItem(dataPersistance, item: favoritedPic)
+        showAlert(title: "Success", message: "PhotoObj: \(favoritedPic.description)")
     }
     
     private func updateUI(){
@@ -76,23 +83,6 @@ class DetailViewController: UIViewController {
         }
     }
 }
-
-//extension DetailViewController: DataPersistenceDelegate{
-//    func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-//
-//        //favoritedPic is of type Photo?
-//        guard let validPic = favoritedPic else { fatalError("Favorited Pic was not created") }
-//        do{
-//             try persistenceHelper.createItem(validPic)
-//        } catch {
-//            showAlert(title: "Data Persist Erro", message: "\(error)")
-//        }
-//    }
-//
-//    func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-//        return
-//    }
-//}
 
 extension UIImage {
     func resizeImage(to width: CGFloat, height: CGFloat) -> UIImage {

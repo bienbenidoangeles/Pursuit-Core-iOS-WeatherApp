@@ -20,3 +20,19 @@ struct Photo: Codable & Equatable{
     let previewURL: String
     var favorited: Bool?
 }
+
+extension Photo{
+    enum CodingKeys:String, CodingKey {
+        case largeImageURL
+        case webformatHeight
+        case webformatWidth
+        case previewURL
+        case favorited
+    }
+}
+
+extension Photo: CustomStringConvertible{
+    var description: String {
+        return "largeImageURL: \(largeImageURL)\nwebformatHeight: \(webformatHeight)\nwebformatWidth: \(webformatWidth)\npreviewURL: \(previewURL)\nfavorited: \(favorited ?? false)"
+    }
+}

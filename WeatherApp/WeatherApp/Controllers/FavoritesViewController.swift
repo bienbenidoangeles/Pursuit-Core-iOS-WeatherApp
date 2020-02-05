@@ -18,9 +18,19 @@ class FavoritesViewController: UIViewController {
         view.backgroundColor = .blue
         // Do any additional setup after loading the view.
     }
+    
+    func delegateAndDataSources(){
+        dataPersistance?.delegate = self
+    }
 
 }
 
-extension FavoritesViewController{
-    
+extension FavoritesViewController: DataPersistenceDelegate{
+    func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        //reload tableView
+    }
+
+    func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        return
+    }
 }
