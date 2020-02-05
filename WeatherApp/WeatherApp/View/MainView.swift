@@ -31,6 +31,7 @@ class MainView: UIView {
     
     var textField: UITextField = {
         let textField = UITextField()
+        textField.textAlignment = .center
         textField.placeholder = "Enter a zipcode"
         return textField
     }()

@@ -80,8 +80,8 @@ class MainWeatherViewController: UIViewController {
 extension MainWeatherViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize: CGSize = UIScreen.main.bounds.size
-        let itemWidth: CGFloat = maxSize.width * 0.3 // 95% of width of device
-        return CGSize(width: itemWidth, height: 300)
+        let itemWidth: CGFloat = maxSize.width * 0.4 // 95% of width of device
+        return CGSize(width: itemWidth, height: itemWidth*2)
     }
     
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

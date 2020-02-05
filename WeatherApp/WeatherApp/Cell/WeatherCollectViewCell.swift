@@ -16,7 +16,7 @@ class WeatherCollectViewCell: UICollectionViewCell {
     //var passedWeatherObj: DataForDay?
     
     func configureCell(for weatherObj: DataForDay){
-        dateLabel.text = weatherObj.sunsetTime.description
+        dateLabel.text = weatherObj.sunsetTime.convertDate()
         weatherImageView.image = UIImage(named: weatherObj.icon)
         temperatureLabel.text = "High: \(Int(weatherObj.temperatureHigh)) deg F\nLow:\(Int(weatherObj.temperatureLow)) deg F"
     }
