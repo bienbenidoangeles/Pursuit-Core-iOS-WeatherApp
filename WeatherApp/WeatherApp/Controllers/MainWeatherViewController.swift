@@ -44,7 +44,12 @@ class MainWeatherViewController: UIViewController {
         navigationController?.title = "Search"
         mainView.collectionView.register(UINib(nibName: "WeatherDayCell", bundle: nil), forCellWithReuseIdentifier: "weatherDayCell")
         delegatesAndDataSources()
-        loadData(for: "10463")
+        if let savedZipCode = UserDefaults.standard.object(forKey: UserDefaultsKey.zipCodeKey) as? String{
+            loadData(for: savedZipCode)
+        } else {
+            loadData(for: "10463")
+        }
+        
     }
     
     private func delegatesAndDataSources(){
@@ -70,8 +75,6 @@ class MainWeatherViewController: UIViewController {
                 self?.getPhoto(with: coordinate.placeName)
             }
         }
-        
-        
     }
     
     private func getWeather(with coor: (Double, Double)){
@@ -133,7 +136,13 @@ extension MainWeatherViewController: UITextFieldDelegate{
         guard let search = textField.text else {
             return false
         }
+        
+        UserDefaults.standard.set(search, forKey: UserDefaultsKey.zipCodeKey)
         loadData(for: search)
         return true
     }
+}
+
+struct UserDefaultsKey {
+    static let zipCodeKey = "Zip Code"
 }
