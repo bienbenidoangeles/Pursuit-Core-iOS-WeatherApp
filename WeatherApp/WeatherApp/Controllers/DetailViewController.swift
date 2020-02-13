@@ -21,7 +21,7 @@ class DetailViewController: UIViewController {
     
     //var favoritedPic: Photo?
     
-    private var delegate: DataPersistenceDelegate?
+    //private var delegate: DataPersistenceDelegate?
     
     override func loadView() {
         view = detailView
@@ -41,7 +41,6 @@ class DetailViewController: UIViewController {
     
     @objc
     private func saveButtonTapped(){
-        //dataPersistance?.delegate = self
         
         guard let photoSelected = passedPhoto else{
             return
@@ -58,7 +57,7 @@ class DetailViewController: UIViewController {
             showAlert(title: "Saving Error", message: "\(error)")
         }
 
-        delegate?.didSaveItem(dataPersistance, item: favoritedPic)
+        //delegate?.didSaveItem(dataPersistance, item: favoritedPic)
         showAlert(title: "Success", message: "PhotoObj: \(favoritedPic.description)")
     }
     

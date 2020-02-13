@@ -48,10 +48,9 @@ class FavoritesCell: UITableViewCell {
         addSubview(cityImageView)
         cityImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            cityImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            cityImageView.topAnchor.constraint(equalTo: topAnchor),
             cityImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             cityImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            cityImageView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
             cityImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }

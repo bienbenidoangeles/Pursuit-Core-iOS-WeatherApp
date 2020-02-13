@@ -39,7 +39,8 @@ class FavoritesViewController: UIViewController {
     
     func delegateAndDataSources(){
         favView.tableView.dataSource = self
-        dataPersistance?.delegate = self
+        favView.tableView.delegate = self
+        //dataPersistance?.delegate = self
     }
     
     func loadData(){
@@ -50,6 +51,12 @@ class FavoritesViewController: UIViewController {
         }
     }
 
+}
+
+extension FavoritesViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UIScreen.main.bounds.height*0.35
+    }
 }
 
 extension FavoritesViewController: UITableViewDataSource{
